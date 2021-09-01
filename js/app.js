@@ -26,6 +26,7 @@ find.addEventListener('click', () => {
     
     // spinner for realtime loading
     spinner.classList.remove("d-none")
+    error.innerText = ''
     searchNumber.classList.add("d-none")
     fetch(url)
         .then(res => res.json())
