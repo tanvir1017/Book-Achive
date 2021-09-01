@@ -12,38 +12,51 @@
       crossorigin="anonymous"
     />
     <!-- Bootstrap cdn link here -->
-    <link rel="stylesheet" href="css/style.css">
-</head>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
   <body>
-      <main class="container mt-3">
-          <section>
-              <!-- [input field or search field] -->
-              <div class="input-group mb-1">
-                <input id="input-field" type="text" class="form-control border border-dark" placeholder="Search by book name" aria-label="Search by book name" aria-describedby="basic-addon2">
-                 <span class="input-group-text bg-dark text-white" style="cursor: pointer;" id="find">Find</span>
-                </div>
-              <!-- [input field or search field] -->
-          </section>
-                <!-- Spinner -->
-            <div class="text-center">
-              <div id="spinner" class="spinner-border d-none" role="status">
-                <span class="visually-hidden">Loading...</span>
-              </div>
-            </div>
-          <!-- [show search resul] -->
-          <section>
-              <!-- [details by card] -->
-                <!-- [result found in number] -->
-                <div id="search-number" class="mb-3 mt-0">
-                    <p id="error"></p>
-                </div>
-                <!-- [result found in number] -->
-              <div id="row" class="row row-cols-2 row-cols-md-5 g-4">
-                </div>
-              <!-- [details by card] -->
-          </section>
-          <!-- [show search resul] -->
-      </main>
+    <main class="container mt-3">
+      <section>
+        <!-- [input field or search field] -->
+        <div class="input-group mb-1">
+          <input
+            id="input-field"
+            type="text"
+            class="form-control border border-dark"
+            placeholder="Search by book name"
+            aria-label="Search by book name"
+            aria-describedby="basic-addon2"
+          />
+          <span
+            class="input-group-text bg-dark text-white"
+            style="cursor: pointer"
+            id="find"
+            >Find</span
+          >
+        </div>
+        <!-- [input field or search field] -->
+      </section>
+      
+      <!-- [result found in number] -->
+        <div class="text-muted fst-italic d-none" id="search-number"></div>
+        <p id="error" class="text-danger fw-bold mt-3"></p>
+        <!-- [result found in number] -->
+
+      <!-- Spinner -->
+      <div class="text-center">
+        <div id="spinner" class="spinner-border d-none mt-5" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <!-- [show search resul] -->
+      
+      <section>
+        <!-- [details by card] -->
+        <div id="row" class="row row-cols-2 row-cols-md-5 g-4"></div>
+        <!-- [details by card] -->
+      </section>
+      <!-- [show search resul] -->
+    </main>
     <script src="js/app.js"></script>
   </body>
 </html>

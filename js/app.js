@@ -3,43 +3,51 @@ const inputField = document.getElementById('input-field')
 const find = document.getElementById('find')
 const row = document.getElementById('row')
 const searchNumber = document.getElementById('search-number')
+const spinner = document.getElementById('spinner')
 const error = document.getElementById('error')
 
+
 find.addEventListener('click', () => {
+    //clear the all content
     row.textContent = ''
+
     const fieldValue = inputField.value;
+    //clear the search field
     inputField.value = ''
+
+    // Handle the unexpected error
     if (fieldValue === "") {
-        error.innerHTML = `
-        <h3 class="mt-3 text-danger">You shouldn't empty the search field !!</h3>
-        `
+        error.innerText = `You shouldn't empty the search field !!`
+        searchNumber.classList.add("d-none")
         return;
     }
+
     const url = `http://openlibrary.org/search.json?q=${fieldValue}`
+    
     // spinner for realtime loading
     spinner.classList.remove("d-none")
+    searchNumber.classList.add("d-none")
     fetch(url)
         .then(res => res.json())
         .then(data => showSearchResult(data))
 })
 
 showSearchResult = searchData => {
+    const search = searchData.docs
+    // Handle the unexpected error
     if (searchData.numFound === 0) {
-        error.innerHTML = `
-          <h3 class="mt-3 text-danger">No result found. Please search with valid keywords</h3>
-        `
+        error.innerText = `No result found. Please search with valid keywords`
         spinner.classList.add("d-none")
     }
+    // Handle the unexpected error
     else {
         error.innerHTML = ''
     }
-    const search = searchData.docs
+
+    // how much result we got
+    searchNumber.innerHTML = `<p>About (${searchData.numFound}) results </p>`
+
     search.forEach(info => {
-        console.log(info)
-        searchNumber.innerHTML = `
-            <span class="text-muted fst-italic">About (${searchData.numFound}) results</span>
-            <hr>
-        `
         const col = document.createElement('div')
         col.classList.add('col')
         col.innerHTML = `
@@ -55,6 +63,7 @@ showSearchResult = searchData => {
         `
         row.appendChild(col)
         spinner.classList.add("d-none")
+        searchNumber.classList.remove("d-none")
 
     })
 }
