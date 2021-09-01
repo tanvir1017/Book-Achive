@@ -55,10 +55,10 @@ showSearchResult = searchData => {
         <div class="card shadow-lg broder border-danger h-100">
             <img src="https://covers.openlibrary.org/b/id/${info.cover_i}-M.jpg" class="card-img-top" alt="...">
                 <div class="card-body bg-dark text-white">
-                    <h5 class="card-title mb-3 text-center fw-bold">${info.title.slice(0, 50)}</h5>
-                    <p class="card-text mb-0"><strong>Author</strong> : ${info.author_name[0]}</p>
-                    <p class="card-text mb-0"><strong>Publisher</strong> : ${info.publisher[0]}</p>
-                    <p class="card-text mb-0"><strong>First release</strong> : ${info.first_publish_year}</p>
+                    <h5 class="card-title mb-3 text-center fw-bold">${info.title.slice(0, 50) ? info.title: 'not found!' }</h5>
+                    <p class="card-text mb-0"><strong>Author</strong> : ${info.author_name[0]?info.author_name[0] : 'not found!'}</p>
+                    <p class="card-text mb-0"><strong>Publisher</strong> : ${info.publisher[0]?info.publisher[0] : 'not found!'}</p>
+                    <p class="card-text mb-0"><strong>First release</strong> : ${info.first_publish_year ? info.first_publish_year : 'not found!'}</p>
                 </div>
         </div>
         `
