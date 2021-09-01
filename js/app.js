@@ -52,9 +52,9 @@ showSearchResult = searchData => {
         const col = document.createElement('div')
         col.classList.add('col')
         col.innerHTML = `
-        <div class="card h-100">
+        <div class="card shadow-lg broder border-danger h-100">
             <img src="https://covers.openlibrary.org/b/id/${info.cover_i}-M.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
+                <div class="card-body bg-dark text-white">
                     <h5 class="card-title mb-3 text-center fw-bold">${info.title.slice(0, 50)}</h5>
                     <p class="card-text mb-0"><strong>Author</strong> : ${info.author_name[0]}</p>
                     <p class="card-text mb-0"><strong>Publisher</strong> : ${info.publisher[0]}</p>
