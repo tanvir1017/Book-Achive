@@ -22,7 +22,7 @@ find.addEventListener('click', () => {
         return;
     }
 
-    const url = `http://openlibrary.org/search.json?q=${fieldValue}`
+    const url = `https://openlibrary.org/search.json?q=${fieldValue}`
     
     // spinner for realtime loading
     spinner.classList.remove("d-none")
