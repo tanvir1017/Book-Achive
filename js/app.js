@@ -35,6 +35,7 @@ find.addEventListener('click', () => {
 
 showSearchResult = searchData => {
     const search = searchData.docs
+    
     // Handle the unexpected error
     if (searchData.numFound === 0) {
         error.innerText = `No result found. Please search with valid keywords`
@@ -46,7 +47,10 @@ showSearchResult = searchData => {
     }
 
     // how much result we got
-    searchNumber.innerHTML = `<p>About (${searchData.numFound}) results </p>`
+    
+    const resultOfArray = search.length
+    console.log(resultOfArray )
+    searchNumber.innerHTML = `<p>About (${resultOfArray}) of (${searchData.numFound}) results  </p>`
 
     search.forEach(info => {
         const col = document.createElement('div')
@@ -54,7 +58,7 @@ showSearchResult = searchData => {
         col.innerHTML = `
         <div class="card shadow-lg broder border-danger h-100">
             <img src="https://covers.openlibrary.org/b/id/${info.cover_i}-M.jpg" class="card-img-top" alt="...">
-                <div class="card-body bg-dark text-white">
+                <div class="card-body text-white">
                     <h5 class="card-title mb-3 text-center fw-bold">${info.title.slice(0, 50) ? info.title: 'not found!' }</h5>
                     <p class="card-text mb-0"><strong>Author</strong> : ${info.author_name[0]?info.author_name[0] : 'not found!'}</p>
                     <p class="card-text mb-0"><strong>Publisher</strong> : ${info.publisher[0]?info.publisher[0] : 'not found!'}</p>
